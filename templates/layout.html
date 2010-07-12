@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>dase on appengine</title>
+        <link href="/www/css/style.css" type="text/css" rel="stylesheet"> 
+        <link rel="shortcut icon" href="/www/images/favicon.ico">
+        <script src="http://www.google.com/jsapi?key=ABQIAAAAZtL9hczjXLiXscEfuJvv9RSHV7NlzmAsWC-cPYC879M3n2FgxhTnFTR7AdeWDGGkfoireRlpsI52jg" type="text/javascript"></script>
+        <script language="Javascript" type="text/javascript">
+            google.load("jquery", "1.4.2");
+            google.load("jqueryui", "1.8.2");
+            google.load("swfobject", "2.2");
+            google.load("webfont", "1.0.4");
+        </script>
+        <script type="text/javascript" src="/www/js/app.js"></script>
+        </head>
+
+        <body>
+            <div id="login">
+                {% if user %}
+                <span class="item nickname">{{ user.nickname }}</span> |
+                <span class="item"><a href="{{ logout_url|escape }}">Sign out</a></span>
+                {% else %}
+                <span class="item"><a href="{{ login_url|escape }}">Sign in</a></span>
+                {% endif %}
+            </div>
+            <div id="container">
+                {% block content %}default{% endblock %}
+            </div>
+        </body>
+
+    </html>
